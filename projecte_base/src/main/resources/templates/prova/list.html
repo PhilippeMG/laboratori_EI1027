@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Llista de Proves</h1>
-<table>
+<table class="table table-striped">
     <thead>
     <tr>
         <th>Nom</th>
@@ -24,13 +24,18 @@
         <td th:text="${Prova.descripcion}"></td>
         <td th:text="${Prova.tipo}"></td>
         <td th:text="${Prova.date}"></td>
-        <td><a th:href="@{/prova/update/{nom}(nom=${Prova.nom})}">Edita</a>
+        <td>
+            <a href="@{/prova/update/{nom}(nom=${Prova.nom})}" class="btn btn btn-warning" role="button" aria-pressed="true">Edita</a>
+
         </td>
-        <td><a th:href="@{/prova/delete/{nom}(nom=${Prova.nom})}">Esborra</a>
+
+        <td>
+            <a  href="@{/prova/delete/{nom}(nom=${Prova.nom})}" class="btn btn btn-danger" role="button" aria-pressed="true">Esborra</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a href="add">Afegeix prova</a>
+<a  href="add" class="btn btn btn-success" role="button" aria-pressed="true">Afegeix prova</a>
+
 </body>
 </html>
