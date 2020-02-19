@@ -27,11 +27,11 @@
         <td th:text="${nadador.edat}"></td>
         <td th:text="${nadador.genere}"></td>
         <td>
-            <a href="@{/nadador/update/{nom}(nom=${nadador.nom})}" class="btn btn btn-warning" role="button" aria-pressed="true">Edita</a>
+            <a th:href="@{/nadador/update/{nom}(nom=${nadador.nom})}" class="btn btn btn-warning" role="button" aria-pressed="true">Edita</a>
 
         </td>
         <td>
-            <a  href="@{/nadador/delete/{nom}(nom=${nadador.nom})}" class="btn btn btn-danger" role="button" aria-pressed="true">Esborra</a>
+            <a  th:href="@{/nadador/delete/{nom}(nom=${nadador.nom})}" class="btn btn btn-danger" role="button" aria-pressed="true">Esborra</a>
 
         </td>
     </tr>
