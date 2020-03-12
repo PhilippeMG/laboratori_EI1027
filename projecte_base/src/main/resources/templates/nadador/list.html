@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 </head>
 <body>
-<h1>Llista de Nadadors</h1>
+<div class="container">
+    <h1>Llista de Nadadors</h1>
+
 <table class="table table-striped">
     <thead>
     <tr>
@@ -20,9 +22,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="nadador: ${nadadors}">
+    <tr th:each="nadador: ${#lists.sort(nadadors)}">
         <td th:text="${nadador.numFederat}"></td>
-        <td th:text="${nadador.nom}"></td>
+        <td th:text="${nadador.nom}"
+            th:class="${#strings.equals(nadador.genere, 'Femení')} ?
+                font-weight-bold : font-italic"></td>
         <td th:text="${nadador.pais}"></td>
         <td th:text="${nadador.edat}"></td>
         <td th:text="${nadador.genere}"></td>
@@ -38,6 +42,6 @@
     </tbody>
 </table>
 <a  href="add" class="btn btn btn-success" role="button" aria-pressed="true">Afegeix Nadador</a>
-
+</div>
 </body>
 </html>

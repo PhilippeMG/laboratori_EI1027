@@ -22,10 +22,13 @@ public class ProvaDao {
     }
 
     /* Afegeix el nadador a la base de dades */
-    void addProva(Prova prova) {
+    public void addProva(Prova prova) {
         jdbcTemplate.update(
-                "INSERT INTO Prova VALUES(?, ?, ?, ?, ?)",
+                "INSERT INTO Prova VALUES(?, ?, ?, ?)",
                 prova.getNom(), prova.getDescripcion(), prova.getTipo(),  prova.getDate());
+    }
+    public void deleteProva(String nombre) {
+        jdbcTemplate.update("DELETE FROM Prova  WHERE nom = ?;",nombre);
     }
 
     /* Esborra el nadador de la base de dades */
@@ -35,8 +38,8 @@ public class ProvaDao {
 
     /* Actualitza els atributs del nadador
        (excepte el nom, que és la clau primària) */
-    void updateProva(Prova prova) {
-        jdbcTemplate.update("UPDATE Prova SET descripcio = ?, tipus = ?,date = ?;",prova.getDescripcion(),prova.getTipo(),prova.getDate());
+    public void updateProva(Prova prova) {
+        jdbcTemplate.update("UPDATE Prova SET descripcio = ?, tipus = ?,data = ?;",prova.getDescripcion(),prova.getTipo(),prova.getDate());
 
     }
 

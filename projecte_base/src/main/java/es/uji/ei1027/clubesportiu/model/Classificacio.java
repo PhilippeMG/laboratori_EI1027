@@ -1,5 +1,7 @@
 package es.uji.ei1027.clubesportiu.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalTime;
 
 public class Classificacio {
@@ -7,7 +9,7 @@ public class Classificacio {
     private String nomNadador;
     private String nomProva;
 
-   // DateTimeFormat(pattern ="HH:mm:ss.SSS")
+   @DateTimeFormat(pattern ="HH:mm:ss.SSS")
 
     private LocalTime temps;
     private int posicio;

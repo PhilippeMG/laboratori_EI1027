@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 </head>
-<body>
+<div class="container">
 <h1>Llista de Proves</h1>
 <table class="table table-striped">
     <thead>
@@ -19,23 +19,23 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="Prova: ${prova}">
-        <td th:text="${Prova.nom}"></td>
-        <td th:text="${Prova.descripcion}"></td>
-        <td th:text="${Prova.tipo}"></td>
-        <td th:text="${Prova.date}"></td>
+    <tr th:each="prov: ${prova}">
+        <td th:text="${prov.nom}"></td>
+        <td th:text="${prov.descripcion}"></td>
+        <td th:text="${prov.tipo}"></td>
+        <td th:text="${#temporals.format(prov.date,'dd MMMM yyyy')}"></td>
         <td>
-            <a href="@{/prova/update/{nom}(nom=${Prova.nom})}" class="btn btn btn-warning" role="button" aria-pressed="true">Edita</a>
+            <a th:href="@{/prova/update/{nom}(nom=${prov.nom})}" class="btn btn btn-warning" role="button" aria-pressed="true">Edita</a>
 
         </td>
 
         <td>
-            <a  href="@{/prova/delete/{nom}(nom=${Prova.nom})}" class="btn btn btn-danger" role="button" aria-pressed="true">Esborra</a>
+            <a  th:href="@{/prova/delete/{nom}(nom=${prov.nom})}" class="btn btn btn-danger" role="button" aria-pressed="true">Esborra</a>
         </td>
     </tr>
     </tbody>
 </table>
 <a  href="add" class="btn btn btn-success" role="button" aria-pressed="true">Afegeix prova</a>
-
+</div>
 </body>
 </html>
