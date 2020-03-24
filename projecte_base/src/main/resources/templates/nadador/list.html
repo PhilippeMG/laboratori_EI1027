@@ -3,13 +3,17 @@
 <head>
     <title>Gestionar Nadadors</title>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/natacio.css"
+          th:href="@{/css/natacio.css}"/>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 </head>
 <body>
 <div class="container">
     <h1>Llista de Nadadors</h1>
+    <table th:unless="${#lists.isEmpty(nadadors)}" class="table table-striped">
 
-<table class="table table-striped">
+<!-- <table class="table table-striped"> -->
     <thead>
     <tr>
         <th>Num. Federat</th>
